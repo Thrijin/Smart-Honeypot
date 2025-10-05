@@ -1,0 +1,13 @@
+[Unit]
+Description=Trap honeypot Flask service
+After=network.target
+
+[Service]
+User=kali
+WorkingDirectory=/home/kali/trap_project
+Environment="PATH=/home/kali/trap_env/bin"
+ExecStart=/home/kali/trap_env/bin/python /home/kali/trap_project/server_app.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
